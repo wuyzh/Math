@@ -11,17 +11,7 @@
             android:id="@+id/model_button_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="打印链表"/>
-        <Button
-            android:id="@+id/model_button_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="非递归反转链表"/>
-        <Button
-            android:id="@+id/model_button_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="递归反转链表"/>
+            android:text="打印组合"/>
     </LinearLayout>
 
 </RelativeLayout>

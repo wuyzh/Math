@@ -7,7 +7,9 @@ import android.view.View;
 
 import com.wuyazhou.learn.logview.LogShowView;
 import com.wuyazhou.learn.math.ListNode.ListNodePagerView;
-import com.wuyazhou.pagerview.ModelPagerView;
+import com.wuyazhou.learn.math.StackAndQueue.StackAndQueuePagerView;
+import com.wuyazhou.learn.math.sync.SyncNumAndCharPagerView;
+import com.wuyazhou.learn.sort.SortPagerView;
 import com.wuyazhou.pagerview.ViewPagerAdapter;
 
 import java.util.ArrayList;
@@ -36,8 +38,12 @@ public class MainActivity extends AppCompatActivity {
         mViewPagerAdapter = new ViewPagerAdapter(mViews,mViewTitle, this);
         mViewPager.setAdapter(mViewPagerAdapter);
         addViewPagerView("反转链表",new ListNodePagerView(this));
-        addViewPagerView("标题二",new ModelPagerView(this));
+        addViewPagerView("栈与队列的相互实现",new StackAndQueuePagerView(this));
+        addViewPagerView("数字和字母组合，同步",new SyncNumAndCharPagerView(this));
+        addViewPagerView("排序",new SortPagerView(this));
         mViewPagerAdapter.notifyDataSetChanged();
+
+        mViewPager.setCurrentItem(3);
     }
 
     private void addViewPagerView(String title, View view){

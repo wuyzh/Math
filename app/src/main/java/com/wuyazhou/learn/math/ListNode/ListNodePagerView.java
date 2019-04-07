@@ -51,6 +51,9 @@ public class ListNodePagerView extends FrameLayout implements View.OnClickListen
         modelFirst.setOnClickListener(this);
         View modelSecond  = mLayout.findViewById(R.id.model_button_2);
         modelSecond.setOnClickListener(this);
+
+        View modelThird  = mLayout.findViewById(R.id.model_button_3);
+        modelThird.setOnClickListener(this);
     }
 
     private void initData(){
@@ -70,7 +73,9 @@ public class ListNodePagerView extends FrameLayout implements View.OnClickListen
         } else if (i == R.id.model_button_2) {
             mListNode = reserveListNode(mListNode);
             printListNode(mListNode);
-        } else {
+        } else if (i == R.id.model_button_3){
+            mListNode = reverseListNode2(mListNode);
+            printListNode(mListNode);
         }
     }
 
@@ -80,15 +85,24 @@ public class ListNodePagerView extends FrameLayout implements View.OnClickListen
         }
         ListNode p = new ListNode(-1);
         p.next = head;
-        ListNode prev = p.next;
-        ListNode pCur = prev.next;
-        while (pCur != null){
-            prev.next = pCur.next;
-            pCur.next = p.next;
-            p.next = pCur;
-            pCur = prev.next;
+        ListNode nextNode = head.next;
+        while (nextNode != null){
+            head.next = nextNode.next;
+            nextNode.next = p.next;
+            p.next = nextNode;
+            nextNode = head.next;
         }
         return p.next;
+    }
+
+    public ListNode reverseListNode2(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode pNode = reverseListNode2(head.next);
+        head.next.next = head;
+        head.next = null;
+        return pNode;
     }
 
     private void printListNode(ListNode listNode){
